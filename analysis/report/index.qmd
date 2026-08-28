@@ -46,7 +46,7 @@ for becoming that owner.*
 # Introduction
 
 An increasingly common development pattern pairs a human architect, who
-designs package structure, API, and behaviour, with an AI assistant that
+designs package structure, API, and behavior, with an AI assistant that
 writes the implementation and the test suite. The arrangement is
 productive, but it creates a responsibility gap. The human author's name
 goes on the package, and with it the obligation to understand, maintain,
@@ -79,7 +79,7 @@ well."
 1. Define the five review phases (structural, function-by-function,
    test suite, integration/system, security) and what each phase is
    for.
-2. Catalogue the AI-generated code patterns that deserve specific
+2. Catalog the AI-generated code patterns that deserve specific
    scrutiny during function review.
 3. Provide a concrete note-taking and severity-classification system
    for tracking findings through remediation.
@@ -167,7 +167,7 @@ requested?
 Are bounds enforced? Do the default arguments make sense?
 
 **Documentation quality.** Does the roxygen2 block describe actual
-behaviour? Are all parameters documented, is the return value
+behavior? Are all parameters documented, is the return value
 specified, and do the examples run without error?
 
 **Code clarity.** Can you explain what each line does and why? Are
@@ -176,7 +176,7 @@ names descriptive and consistent across the file?
 For each function, read the documentation before the implementation,
 trace the happy path with typical valid inputs, then trace at least
 one failure path with an invalid or edge-case input, verify that the
-test suite actually exercises the behaviour just traced, and
+test suite actually exercises the behavior just traced, and
 deliberately question any assumption the code makes implicitly.
 
 ### Patterns specific to AI-generated code
@@ -209,7 +209,7 @@ covr::report(coverage)
 ```
 
 High coverage does not guarantee test quality. For each test file,
-separately assess whether the assertions check substantive behaviour
+separately assess whether the assertions check substantive behavior
 or merely that the code runs without erroring, whether boundary
 conditions are tested, whether expected failures are verified rather
 than only successes, whether tests are independent of one another's
@@ -217,8 +217,8 @@ side effects, and whether a reader can tell what each test is meant
 to validate.
 
 Then check correspondence in both directions: every documented
-behaviour should have a corresponding test, and every test should
-correspond to a documented or intended behaviour. Tests that check
+behavior should have a corresponding test, and every test should
+correspond to a documented or intended behavior. Tests that check
 conditions no longer relevant to the design are as much a maintenance
 liability as missing tests.
 
@@ -236,7 +236,7 @@ performed correctly when something fails partway through?
 ## Phase 5: Security and Safety Review
 
 Examine every user-facing input for the standard vulnerability
-classes: unsanitised input used in file paths, input passed to system
+classes: unsanitized input used in file paths, input passed to system
 commands, query construction, and serialization or deserialization of
 untrusted data. For network and file system operations, confirm
 connections are closed, temporary files are cleaned up, credentials
@@ -285,7 +285,7 @@ memory. A minimal per-function template:
 ```
 
 Classify every finding by severity: **Critical** (incorrect
-behaviour, a security vulnerability, or a data-corruption risk),
+behavior, a security vulnerability, or a data-corruption risk),
 **Major** (a significant deviation from requirements or poor error
 handling), **Minor** (style inconsistency, a documentation gap, or a
 small inefficiency), or **Enhancement** (a suggestion beyond the
@@ -301,7 +301,7 @@ allows. For each fix, understand the root cause before touching the
 code, implement the fix yourself rather than delegating it back to
 the assistant without understanding it, add or modify a test to
 prevent regression, and update documentation if the observable
-behaviour changed.
+behavior changed.
 
 After remediation, re-run the full test suite and `R CMD check`,
 confirm coverage has not decreased, and review the diff in version
@@ -418,7 +418,7 @@ actually costs if it ships unresolved.
   template's "Understanding" field is not decorative; if you cannot
   fill it in from memory, the function has not actually been reviewed.
 
-# Lessons Learnt
+# Lessons Learned
 
 **Conceptual understanding:**
 
@@ -442,14 +442,14 @@ actually costs if it ships unresolved.
   bodies, not just the coverage report.
 - `R CMD check` passing does not imply the design was followed; that
   requires the separate design-alignment pass.
-- A function's documentation can describe intended behaviour
+- A function's documentation can describe intended behavior
   accurately while the implementation has drifted from it; verify
   both directions.
 
 # Limitations
 
 - The framework is scoped to R packages specifically; the phase
-  structure generalises, but the tooling references (`covr`, `lintr`,
+  structure generalizes, but the tooling references (`covr`, `lintr`,
   `goodpractice`) do not transfer to other languages without
   substitution.
 - It assumes the human author already has enough R fluency to
@@ -481,7 +481,7 @@ actually costs if it ships unresolved.
 
 Before claiming ownership of the package, verify that you can, without
 referring to the code: explain any function's purpose and
-implementation, predict its behaviour for a novel input, identify
+implementation, predict its behavior for a novel input, identify
 where a new requirement would require a change, and debug an issue
 without AI assistance. Separately, confirm maintenance readiness: can
 you respond to a user's issue, review an external contribution, adapt
