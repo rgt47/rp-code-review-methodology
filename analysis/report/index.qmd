@@ -174,10 +174,10 @@ specified, and do the examples run without error?
 names descriptive and consistent across the file?
 
 For each function, read the documentation before the implementation,
-trace the happy path with typical valid inputs, then trace at least
-one failure path with an invalid or edge-case input, verify that the
-test suite actually exercises the behavior just traced, and
-deliberately question any assumption the code makes implicitly.
+then trace the happy path with typical valid inputs and at least one
+failure path with an invalid or edge-case input. Verify that the test
+suite actually exercises the behavior just traced, and deliberately
+question any assumption the code makes implicitly.
 
 ### Patterns specific to AI-generated code
 
@@ -298,8 +298,8 @@ Work through issues in severity order: critical issues affecting
 correctness or security first, then major issues affecting usability
 or maintainability, then minor issues and enhancements as time
 allows. For each fix, understand the root cause before touching the
-code, implement the fix yourself rather than delegating it back to
-the assistant without understanding it, add or modify a test to
+code, and implement the fix yourself rather than delegating it back
+to the assistant without understanding it. Add or modify a test to
 prevent regression, and update documentation if the observable
 behavior changed.
 
@@ -515,10 +515,10 @@ produce. The process demands more than a read-through; it requires
 achieving genuine understanding of every component before accepting
 responsibility for it. The five-phase structure (structural,
 function-by-function, test suite, integration, security) gives that
-process a checklist rather than leaving it to instinct, and the
-ownership test at the end gives it a stopping condition: review is
-complete when the answers to the ownership questions are honestly
-yes, not when the reviewer is tired of reading code.
+process a checklist rather than leaving it to instinct. The ownership
+test at the end gives it a stopping condition: review is complete
+when the answers to the ownership questions are honestly yes, not
+when the reviewer is tired of reading code.
 
 **Main takeaways:**
 
