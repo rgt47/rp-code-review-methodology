@@ -6,7 +6,7 @@ categories: [r, r-packages, code-review, ai-assisted-development, testing]
 description: "A methodological framework for reviewing R packages built through human-AI collaboration, structured as five review phases plus an explicit test for whether the human author has earned ownership of the result."
 image: "media/images/hero.jpg"
 document-type: "blog"
-draft: true
+draft: false
 execute:
   echo: true
   warning: false
